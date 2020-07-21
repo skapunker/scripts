@@ -118,9 +118,10 @@ def live():
 		channel = wifichan
 	try:
 		print bcolors.WARNING + "\n[-]"+ bcolors.ENDC + " Enabling monitor interface and channel..."
-		subprocess.Popen("airmon-ng check kill", shell=True, stdout=subprocess.PIPE).stdout.read()
-		subprocess.Popen("airmon-ng start "+adapter, shell=True, stdout=subprocess.PIPE).stdout.read()
-		adapter=adapter+"mon"
+		# Disabling commands for an interface that has already been put into monitor mode.
+		# subprocess.Popen("airmon-ng check kill", shell=True, stdout=subprocess.PIPE).stdout.read()
+		# subprocess.Popen("airmon-ng start "+adapter, shell=True, stdout=subprocess.PIPE).stdout.read()
+		# adapter=adapter+"mon"
 	except:
 		print "\n" + bcolors.FAIL + "[!]" + bcolors.ENDC + " Unable to enable MONITOR mode, exiting.\n"
 	
